@@ -15,9 +15,14 @@ class Routeur
     {
         try
         {
-            if (condition) 
+            if (isset($_GET['action'])) 
             {
                 # code...
+            }
+            
+            else
+            {
+                $this->ctrlAccueil->accueil();
             }
         }
         catch (Exception $e)
