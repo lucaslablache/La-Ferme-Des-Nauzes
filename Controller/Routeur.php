@@ -15,11 +15,11 @@ class Routeur
     {
         try
         {
-            if (isset($_GET['action'])) 
+            if (FALSE) 
             {
                 # code...
             }
-            
+
             else
             {
                 $this->ctrlAccueil->accueil();

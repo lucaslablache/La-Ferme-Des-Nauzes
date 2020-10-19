@@ -7,7 +7,7 @@ class ControleurAccueil
     private $post;
     private $postManager;
 
-    public function __contruct()
+    public function __construct()
     {
         $this->postManager = new Post();
     }

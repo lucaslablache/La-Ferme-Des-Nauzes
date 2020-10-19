@@ -1,5 +1,5 @@
 <?php
-require_once 'Modele/Modele.php';
+require_once 'Model/Model.php';
 
 class Post extends Modele
 {
