@@ -1,6 +1,6 @@
 <?php
-require_once 'Model/Post.php';
-require_once 'View/vue.php';
+require_once 'Modele/Post.php';
+require_once 'Vue/vue.php';
 
 class ControleurAccueil
 {

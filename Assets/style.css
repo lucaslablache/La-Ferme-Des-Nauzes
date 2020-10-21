@@ -2,8 +2,34 @@
 {
   color: #7DA31A;
 }
+.vert-pluscool
+{
+  color: #b1d25c;
+}
 
 .orange
 {
   color: #FDAE47;
+}
+
+.backgroundvert
+{
+  background-color: #7DA31A;
+}
+
+.btn
+{
+		border:2px solid #FDAE47;
+		border-radius: 1.5rem;
+		color: #FDAE47;
+}
+  
+.lien
+{
+  color: #FDAE47;
+}
+
+.logo-navbar
+{
+  width: 60px;
 }

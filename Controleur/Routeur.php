@@ -1,6 +1,6 @@
 <?php
-require_once 'Controller/ControleurAccueil.php';
-require_once 'View/Vue.php';
+require_once 'Controleur/ControleurAccueil.php';
+require_once 'Vue/Vue.php';
 
 class Routeur
 {

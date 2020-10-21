@@ -11,6 +11,7 @@
     <!-- feuille de style -->
     <link rel="stylesheet" href="style_temp.css">
     <link rel="stylesheet" href="style_temp_media.css">
+    <link rel="stylesheet" href="style.css">
 
 
 </head>
@@ -18,87 +19,62 @@
 <body>
   <div class="background">
       <div class="container">
+          <header class="">
 
-          <header class="banner">
-              <img class="image image_banner" src="https://via.placeholder.com/1920x825" alt="montagnes enneigées">
-
-              <!-- nav petits ecrans -->
-              <div class="pos-f-t nav_banner burger">
-                  <div class="collapse" id="navbarToggleExternalContent">
-                      <div class="xp-4 nav_burger_extend">
-                          <p>
-                              <a class="navbar-brand text-light" href="#">La ferme des Nauzes</a>
-                          </p>
-                          <ul class="nav nav-tabs nav-fill nav_col">
-                              <li class="nav-item">
-                                  <a class="nav-link active" href="#">Accueil</a>
-                              </li>
-                              <li class="nav-item dropdown">
-                                  <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sommaire</a>
-                                  <div class="dropdown-menu">
-                                      <a class="dropdown-item" href="#">Chapitre 1</a>
-                                      <a class="dropdown-item" href="#">Chapitre 2</a>
-                                      <a class="dropdown-item" href="#">Chapitre 3</a>
-                                  </div>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link text-light" href="#">Biographie</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link text-light" href="#">Administration</a>
-                              </li>
-                          </ul>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+                <a class="navbar-brand" href="#">
+                    <img src="../Assets/img/Logo_Couleur-texte.png" class="logo-navbar" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Tarifs</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Recettes
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Hiver</a>
+                        <a class="dropdown-item" href="#">Printemps</a>
+                        <a class="dropdown-item" href="#">Ete</a>
+                        <a class="dropdown-item" href="#">Automne</a>
                       </div>
-                  </div>
-                  <nav class="navbar navbar-dark">
-                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                          <span class="navbar-toggler-icon"></span>
-                      </button>
-                  </nav>
-              </div>
-
-              <!-- nav grands ecrans -->
-              <ul class="nav nav-tabs nav-fill nav_banner navigation">
-                  <li class="nav-item ">
-                      <a class="navbar-brand text-light" href="#">La ferme des Nauzes</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link active" href="#">Accueil</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Informations</a>
-                      <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Qui suis-je ?</a>
-                          <a class="dropdown-item" href="#">Histoire de la ferme</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Informations
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="#">Collaborateurs</a>
-                      </div>
-                  </li>
-                  <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Recettes</a>
-                      <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Hiver</a>
-                          <a class="dropdown-item" href="#">Printemps</a>
-                          <a class="dropdown-item" href="#">Ete</a>
-                          <a class="dropdown-item" href="#">Automne</a>
-                      </div>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link text-light" href="#">Prix</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link text-light" href="#">Administration</a>
-                  </li>
-              </ul>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Histoire de la ferme</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Administration</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+
           </header>
 
 
-          <div class="bg-bleu">
+          <div class="">
               <section class="pt-5">
                   <!-- <?= $contenu ?> -->
               </section>
           </div>
 
-          <footer class="page-footer container">
+          <footer class="container backgroundvert">
               <div class="row text-center py-2 justify-content-between">
                 <ul class="list-unstyled list-inline text-center mb-0">
                     <li class="list-inline-item">
@@ -116,7 +92,7 @@
               </div>
               <!-- Copyright -->
               <div class="footer-copyright text-center py-3">
-                  <a href="#">La ferme des Nauzes </a>© 2020
+                  <a href="#" class="lien">La ferme des Nauzes </a>© 2020
               </div>
 
           </footer>

@@ -1,5 +1,5 @@
 <?php
-require 'Controller/Routeur.php';
+require 'Controleur/Routeur.php';
 
 $routeur = new Routeur();
 $routeur->routerRequete();
