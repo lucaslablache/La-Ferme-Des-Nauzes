@@ -22,7 +22,7 @@ class Vue
 	{
 		$contenu = $this->genererFichier($this->fichier, $donnees);
 
-		$vue = $this->genererFichier('View/Gabarit.php', array('titre' => $this->titre, 'contenu' => $contenu));
+		$vue = $this->genererFichier('Vue/Gabarit.php', array('titre' => $this->titre, 'contenu' => $contenu));
 
 		echo $vue;
 	}
