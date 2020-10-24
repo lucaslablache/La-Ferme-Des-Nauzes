@@ -1,32 +1,33 @@
 .vert
 {
-  color: #7DA31A;
-}
-.vert-pluscool
-{
-  color: #b1d25c;
+  color: #84AC67;
 }
 
-.orange
+.rose
 {
-  color: #FDAE47;
+  color: #FEAC97;
 }
 
-.backgroundvert
+.blanc
 {
-  background-color: #7DA31A;
+  color: #F0F2E7;
 }
 
 .btn
 {
-		border:2px solid #FDAE47;
+		border:2px solid #FEAC97;
 		border-radius: 1.5rem;
-		color: #FDAE47;
+		color: #FEAC97;
 }
   
 .lien
 {
-  color: #FDAE47;
+  color:#FEAC97 !important;
+}
+
+.bgblanc
+{
+  background-color: #F0F2E7;
 }
 
 .logo-navbar
