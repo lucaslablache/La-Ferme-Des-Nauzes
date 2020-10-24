@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!-- feuille de style -->
-    <link rel="stylesheet" href="style_temp.css">
-    <link rel="stylesheet" href="style_temp_media.css">
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style_temp.css">
+    <link rel="stylesheet" href="style_temp_media.css"> -->
+    <link rel="stylesheet" href="./Assets/style.css">
+    <script src="./Assets/js/carroussel-ratio.js"></script>
 
 
 </head>
@@ -23,7 +24,7 @@
             <!-- nav -->
             <nav class="navbar navbar-expand-lg navbar-light bgvert sticky-top">
                 <a class="navbar-brand" href="#">
-                    <img src="../Assets/img/Logo_Couleur-texte.png" class="logo-navbar" alt="logo">
+                    <img src="./Assets/img/Logo_Couleur-texte.png" class="logo-navbar" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -70,8 +71,8 @@
 
 
           <div class="">
-              <section class="pt-5">
-                  <!-- <?= $contenu ?> -->
+              <section class="">
+                  <?= $contenu ?>
               </section>
           </div>
 

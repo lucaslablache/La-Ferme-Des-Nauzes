@@ -13,6 +13,15 @@
   color: #F0F2E7;
 }
 
+.bgblanc
+{
+  background-color: #F0F2E7;
+}
+
+.bgvert
+{
+  background-color: #84AC67;
+}
 .btn
 {
 		border:2px solid #FEAC97;
@@ -25,12 +34,12 @@
   color:#FEAC97 !important;
 }
 
-.bgblanc
-{
-  background-color: #F0F2E7;
-}
-
 .logo-navbar
 {
   width: 60px;
+}
+
+.ratio
+{
+  height: ;
 }
