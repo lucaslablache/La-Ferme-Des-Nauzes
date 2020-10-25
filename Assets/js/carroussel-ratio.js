@@ -1,7 +1,7 @@
 console.log('a');
-document.addEventListener('DOMContentLoaded', () => {
-    let inner = document.getElementsByClassName('carousel-inner');
-    console.log(inner["0"]);
-    inner.style.height = inner.offsetwidth * 9.0/16.0;
+$(document).ready(() => {
+    let inner = $('.carousel-inner');
+    console.log(inner);
+    inner.height( inner.width() * 9.0/16.0);
 
 } );
