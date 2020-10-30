@@ -1,8 +1,8 @@
 <?php
-// require 'Controleur/Routeur.php';
+require 'Controleur/Routeur.php';
 
-// $routeur = new Routeur();
-// $routeur->routerRequete();
+$routeur = new Routeur();
+$routeur->routerRequete();
 
 
 // var_dump($GLOBALS);

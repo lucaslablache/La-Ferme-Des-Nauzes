@@ -3,7 +3,7 @@ require_once 'Vue/Vue.php';
 
 class Routeur
 {
-    private $ctrl;
+    private $_ctrl;
 
     public function routerRequete()
     {
@@ -38,7 +38,7 @@ class Routeur
                 if(file_exists($controleurFile))
                 {
                     require_once($controleurFile);
-                    $this->ctrl = new $controleurClass($url);
+                    $this->_ctrl = new $controleurClass($url);
                 }
                 else
                 {
@@ -47,19 +47,19 @@ class Routeur
             }
             else
             {
-                echo 'a';
                 require_once('Controleur/ControleurAccueil.php');
                 $this->_ctrl = new ControleurAccueil($url);
+                $this->_ctrl->accueil();
             }
         }
         catch(Exception $e)
         {
             $errorMsg = $e->getMessage();
-            erreur($errorMsg);
+            $this->erreur($errorMsg);
         }
     }
 
-    private function erreur ($msgErreur)
+    private function erreur($msgErreur)
     {
         $vue = new Vue("Erreur");
         $vue->generer(array('msgErreur' => $msgErreur));
