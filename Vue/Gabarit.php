@@ -34,8 +34,14 @@
                     <li class="nav-item active">
                       <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                      <a class=" nav-link" href="#">Tarifs</a>
+                    <li class="nav-item dropdown">
+                      <a class=" nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Marché
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Dates prochains marchés</a>
+                        <a class="dropdown-item" href="#">Réserver mon panier</a>
+                      </div>
                     </li>
                     <li class="nav-item dropdown">
                       <a class=" nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -76,7 +82,7 @@
           </div>
 
           <footer class="container bgvert">
-              <div class="row text-center py-2 justify-content-between">
+              <div class="row text-center py-2 justify-content-between mx-0">
                 <ul class="list-unstyled list-inline text-center mb-0">
                     <li class="list-inline-item">
                       <a href="#" class="btn btn-outline-white btn-rounded"><i class="fab fa-facebook-f"></i></a>

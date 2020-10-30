@@ -1,7 +1,4 @@
 <?php
-/**
- * 
- */
 class Vue
 {
 	//nom du fichier associé a la vue
