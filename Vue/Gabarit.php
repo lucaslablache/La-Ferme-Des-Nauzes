@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!-- feuille de style -->
-    <link rel="stylesheet" href="./Assets/style.css">
+    <link rel="stylesheet" href="/Assets/style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="./Assets/js/carroussel-ratio.js"></script>
+    <script src="/Assets/js/carroussel-ratio.js"></script>
 
 
 </head>
@@ -22,8 +22,8 @@
           <header class="">
             <!-- nav -->
             <nav class="navbar navbar-expand-lg navbar-light bgvert sticky-top">
-                <a class="navbar-brand" href="#">
-                    <img src="./Assets/img/Logo_Couleur-texte.png" class="logo-navbar" alt="logo">
+                <a class="navbar-brand" href="/">
+                    <img src="/Assets/img/Logo_Couleur-texte.png" class="logo-navbar" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -32,15 +32,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav">
                     <li class="nav-item active">
-                      <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                       <a class=" nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Marché
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Dates prochains marchés</a>
-                        <a class="dropdown-item" href="#">Réserver mon panier</a>
+                        <a class="dropdown-item" href="/marche/agenda">Dates prochains marchés</a>
+                        <a class="dropdown-item" href="/marche/panier">Réserver mon panier</a>
                       </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -48,10 +48,10 @@
                         Recettes
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Hiver</a>
-                        <a class="dropdown-item" href="#">Printemps</a>
-                        <a class="dropdown-item" href="#">Ete</a>
-                        <a class="dropdown-item" href="#">Automne</a>
+                        <a class="dropdown-item" href="/recette/hiver">Hiver</a>
+                        <a class="dropdown-item" href="/recette/printemps">Printemps</a>
+                        <a class="dropdown-item" href="/recette/ete">Ete</a>
+                        <a class="dropdown-item" href="/recette/automne">Automne</a>
                       </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -59,14 +59,25 @@
                           Informations
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="#">Collaborateurs</a>
+                          <a class="dropdown-item" href="/info/partenaire">Collaborateurs</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Histoire de la ferme</a>
+                          <a class="dropdown-item" href="/info/histoire">Histoire de la ferme</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class=" nav-link" href="#">Administration</a>
+                        <a class=" nav-link" href="/admin">Administration</a>
                     </li>
+                    
+                    <?php 
+                    if(isset($_SESSION['logged']) && $_SESSION['logged']) 
+                    {
+                        echo"
+                           <li class=\"nav-item\">
+                               <a class=\" nav-link\" href=\"/logout\">Se déconnecter</a>
+                           </li>
+                        ";
+                     }
+                     ?>
                   </ul>
                 </div>
               </nav>
