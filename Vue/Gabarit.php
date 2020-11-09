@@ -71,11 +71,11 @@
                     <?php 
                     if(isset($_SESSION['logged']) && $_SESSION['logged']) 
                     {
-                        echo"
-                           <li class=\"nav-item\">
-                               <a class=\" nav-link\" href=\"/logout\">Se déconnecter</a>
+                        ?>
+                           <li class="nav-item">
+                               <a class=" nav-link" href="/logout">Se déconnecter</a>
                            </li>
-                        ";
+                        <?php
                      }
                      ?>
                   </ul>

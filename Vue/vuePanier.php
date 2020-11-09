@@ -1,1 +1,3 @@
-Panier
+<?php
+var_dump ($products);
+?>

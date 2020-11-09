@@ -4,6 +4,8 @@ require_once 'Vue/vue.php';
 
 class ControleurMarche
 {
+    private $productManager;
+    private $agendaManager;
 
     public function __construct($_url)
     {
@@ -31,7 +33,14 @@ class ControleurMarche
 
     public function panier()
     {
+        $this->productManager = new Produit();
+        
         $vue = new Vue("Panier");
-        $vue->generer([]);
+        
+        $products = $this->productManager->getProducts();
+        
+        $vue->generer([
+            'products' => $products
+        ]);
     }
 }

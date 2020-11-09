@@ -10,6 +10,7 @@ class ControleurAccueil
     public function __construct($_url)
     {
         $this->postManager = new Post();
+        $this->accueil();
     }
 
     public function accueil()
