@@ -1,5 +1,6 @@
 <?php
 require 'Controleur/Routeur.php';
+require 'Assets/functions/functions.php';
 
 $routeur = new Routeur();
 $routeur->routerRequete();

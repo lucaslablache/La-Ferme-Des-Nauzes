@@ -17,7 +17,19 @@ class ControleurAdmin
         //todo: manage url length
         if (isset($_SESSION['logged']) && $_SESSION['logged'])
         {
-            $this->admin();
+            if (count($_url) === 1) 
+            {
+                $this->admin();
+            }
+            elseif (count($_url) === 2 && $_url[1] === 'agenda')
+            {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+                {
+                    storer
+                }
+                $this->editAgenda();
+            }
+
         }
         elseif (isset($_POST['login']) && !empty($_POST['username'])
             && !empty($_POST['password']))
@@ -53,6 +65,12 @@ class ControleurAdmin
         $vue->generer([
             "flashContent" => $loginMsg
         ]);
+    }
+
+    public function editAgenda()
+    {
+        $vue = new Vue("EditAgenda");
+        $vue->generer([]);
     }
 
     public function login(String $errorMsg = null)
