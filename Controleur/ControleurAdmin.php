@@ -4,6 +4,7 @@ require_once 'Vue/vue.php';
 
 class ControleurAdmin
 {
+    private $agendaManager;
 
     public function __construct($_url)
     {
@@ -23,10 +24,6 @@ class ControleurAdmin
             }
             elseif (count($_url) === 2 && $_url[1] === 'agenda')
             {
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') 
-                {
-                    storer
-                }
                 $this->editAgenda();
             }
 
@@ -69,8 +66,24 @@ class ControleurAdmin
 
     public function editAgenda()
     {
+        $this->agendaManager = new Agenda();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST')
+        {
+            $date = Modele::clear_string($_POST['date']);
+            $time_start = Modele::clear_string($_POST['time-start']);
+            $time_end = Modele::clear_string($_POST['time-end']);
+            $location = Modele::clear_string($_POST['location']);
+            $agenda = new Agenda();
+            $agenda->insertNewAgendaEvent($date, $time_start, $time_end, $location);
+        }
+
         $vue = new Vue("EditAgenda");
-        $vue->generer([]);
+        $agendaEvents = $this->agendaManager->getAgendaEvents();
+        $vue->generer([
+            'agendaEvents' => $agendaEvents
+        ]);
+        
     }
 
     public function login(String $errorMsg = null)

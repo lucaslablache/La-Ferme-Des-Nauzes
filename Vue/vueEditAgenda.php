@@ -7,28 +7,53 @@ $aujourdhui = (new DateTime("now"))->format('Y-m-d');
     
     <form class="row justify-content-around js-time-interval" method="post">
         <h4 class="col-3 text-center">Date, heures et lieu du nouveau marché</h4>
-        <div class="col-2">
+        <div class="col-2 px-0">
             <label class="col-12 text-center">Date :</label>
-            <input class="col-12" type="date" id="date">
+            <input class="col-12" type="date" id="date" name="date">
         </div>
-        <div class="col-2">
+        <div class="col-2 px-0">
             <label class="col-12 text-center">De :</label>
             <input class="js-time-interval-start col-12" type="time" name="time-start" required>
         </div>
-        <div class="col-2">
+        <div class="col-2 px-0">
             <label class="col-12 text-center">À :</label>
             <input class="js-time-interval-end col-12" type="time" name="time-end" required>
         </div>
-        <div class="col-2">
+        <div class="col-2 px-0">
             <label class="col-12 text-center">lieu :</label>
             <input class="col-12" type="text" name="location" required>
         </div>
+        <button type="subbmit" class="btn btn-success">Subbmit</button>
     </form>
-    <button type="subbmit" class="btn btn-success">Subbmit</button>
+    
 </section>
-
+<?php
+var_dump($agendaEvents);
+?>
 <section class="sectionadmin container">
-    
     <h3 class="titreAdmin">Marchés à venir</h3>
-    
+    <table data-toggle="table">
+      <thead>
+        <tr>
+          <th>Marchés</th>
+          <th>Heure de début</th>
+          <th>Heure de fin</th>
+          <th>Lieu</th>
+          <th>Modifier</th>
+          <th>Supprimer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($agendaEvents as $agendaEvent):?>
+        <tr>
+            <td><?= $agendaEvent['date'] ?></td>
+            <td><?= $agendaEvent['heure_debut'] ?></td>
+            <td><?= $agendaEvent['heure_fin'] ?></td>
+            <td><?= $agendaEvent['adresse'] ?></td>
+            <td><button class="btn btn-warning">Modifier</button></td>
+            <td><button class="btn btn-danger">Supprimer</button></td>
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
 </section>

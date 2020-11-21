@@ -31,11 +31,19 @@ abstract class Modele
     }
 
     //fonction de vérifications des entrées utilisateur
-    public function clear_string($data)
+    static public function clear_string($data)
     {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
+        return $data;
+    }
+    static public function clear_sql_string($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        $data = PDO::quote($data);
         return $data;
     }
 }
