@@ -12,7 +12,7 @@ class Agenda extends Modele
 
     public function getAgendaEvents()
     {
-        $sql = 'SELECT ID as id, date as date, heure_debut as heure_debut, heure_fin as heure_fin, adresse as adresse FROM market ORDER BY date DESC';
+        $sql = 'SELECT ID as id, date as date, heure_debut as heure_debut, heure_fin as heure_fin, adresse as adresse FROM market ORDER BY date ASC';
         $agendaEvent = $this->executerRequete($sql);
         return $agendaEvent->fetchAll();
     }

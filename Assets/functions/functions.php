@@ -11,7 +11,11 @@ function afficheDateHeureFr($date)
 
 function afficheDateFr($date)
 {
-	return DateTime::createFromFormat('Y-m-d', $date)->format('d/m/Y');
+	$dt = DateTime::createFromFormat('Y-m-d', $date);
+	$date = $dt->format('d F Y');
+	$english_months = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+	$french_months = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
+	return str_replace($english_months, $french_months, $date);
 }
 
 function afficheDateUs($date)

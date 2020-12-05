@@ -80,8 +80,29 @@ class ControleurAdmin
 
         $vue = new Vue("EditAgenda");
         $agendaEvents = $this->agendaManager->getAgendaEvents();
+
+        $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
+        $now->format('Y-m-d');
+
+        $futureAgendaEvents = [];
+        $pastAgendaEvents = [];
+        foreach ($agendaEvents as $agendaEvent)
+        {
+            $_date = new DateTime($agendaEvent['date']);
+            if ($_date >= $now) 
+            {
+                array_push($futureAgendaEvents, $agendaEvent);
+            }
+            else
+            {
+                array_push($pastAgendaEvents, $agendaEvent);
+            }
+        }
+        
+
         $vue->generer([
-            'agendaEvents' => $agendaEvents
+            'pastAgendaEvents' => $pastAgendaEvents,
+            'futureAgendaEvents' => $futureAgendaEvents
         ]);
         
     }

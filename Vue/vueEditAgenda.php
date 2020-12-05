@@ -27,9 +27,6 @@ $aujourdhui = (new DateTime("now"))->format('Y-m-d');
     </form>
     
 </section>
-<?php
-var_dump($agendaEvents);
-?>
 <section class="sectionadmin container">
     <h3 class="titreAdmin">Marchés à venir</h3>
     <table data-toggle="table">
@@ -44,14 +41,41 @@ var_dump($agendaEvents);
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($agendaEvents as $agendaEvent):?>
+        <?php foreach ($futureAgendaEvents as $futureAgendaEvent):?>
         <tr>
-            <td><?= $agendaEvent['date'] ?></td>
-            <td><?= $agendaEvent['heure_debut'] ?></td>
-            <td><?= $agendaEvent['heure_fin'] ?></td>
-            <td><?= $agendaEvent['adresse'] ?></td>
+            <td><?= afficheDateFr($futureAgendaEvent['date']) ?></td>
+            <td><?= $futureAgendaEvent['heure_debut'] ?></td>
+            <td><?= $futureAgendaEvent['heure_fin'] ?></td>
+            <td><?= $futureAgendaEvent['adresse'] ?></td>
             <td><button class="btn btn-warning">Modifier</button></td>
-            <td><button class="btn btn-danger">Supprimer</button></td>
+            <td><button class="btn btn-danger" onclick="return(confirm('Etes-vous sûr de vouloir supprimer cette entrée?'));">Supprimer</button></td>
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+</section>
+<section class="sectionadmin container">
+    <h3 class="titreAdmin">Marchés Passés</h3>
+    <table data-toggle="table">
+      <thead>
+        <tr>
+          <th>Marchés</th>
+          <th>Heure de début</th>
+          <th>Heure de fin</th>
+          <th>Lieu</th>
+          <th>Modifier</th>
+          <th>Supprimer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($pastAgendaEvents as $pastAgendaEvent):?>
+        <tr>
+            <td><?= afficheDateFr($pastAgendaEvent['date']) ?></td>
+            <td><?= $pastAgendaEvent['heure_debut'] ?></td>
+            <td><?= $pastAgendaEvent['heure_fin'] ?></td>
+            <td><?= $pastAgendaEvent['adresse'] ?></td>
+            <td><button class="btn btn-warning">Modifier</button></td>
+            <td><button class="btn btn-danger" onclick="return(confirm('Etes-vous sûr de vouloir supprimer cette entrée?'));">Supprimer</button></td>
         </tr>
         <?php endforeach; ?>
       </tbody>
