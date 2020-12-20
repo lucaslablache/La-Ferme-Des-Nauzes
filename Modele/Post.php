@@ -26,4 +26,13 @@ class Post extends Modele
         }
 
     }
+
+    public function insertNewPost($titre, $texte, $photo, $type)
+    {
+        $sql = 'insert into post'
+                .'(POST_TITRE, POST_TEXTE, POST_TYPE, POST_AUTEUR, POST_DATE, POST_PHOTO)'
+                .' values (?,?,?,0,?,?)';
+        $date = date("Y-m-d H:i:s");
+        $this->executerRequete($sql, array($titre, $texte, $type, $date, $photo));
+    }
 }

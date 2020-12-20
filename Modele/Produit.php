@@ -8,4 +8,13 @@ class Produit extends Modele
         $product = $this->executerRequete($sql);
         return $product->fetchAll();
     }
+
+    public function insertNewProduct($nom, $variete, $photo, $prix, $mod_prix)
+    {
+        
+        $sql = 'insert into produit'
+                .'(nom, variete, photo, prix, mod_prix,quantite)'
+                .' values (?,?,?,?,?,0)';
+        $this->executerRequete($sql, array($nom, $variete, $photo, $prix, $mod_prix));
+    }
 }

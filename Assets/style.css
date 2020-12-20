@@ -52,3 +52,8 @@ https://www.design-seeds.com/seasons/summer/fresh-hues-23/
 {
   height: auto !important;
 }
+
+.dotless-ul
+{
+  list-style-type: none;
+}

@@ -17,6 +17,11 @@ abstract class Modele
         return $resultat;
     }
 
+    protected function getLastId()
+    {
+        return $this->getBdd()->lastIsertId();
+    }
+
     private function getBdd()
     {
         if ($this->bdd == null) 
