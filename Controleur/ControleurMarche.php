@@ -27,8 +27,14 @@ class ControleurMarche
 
     public function agenda()
     {
+        $this->agendaManager = new Agenda();
+        
         $vue = new Vue("Agenda");
-        $vue->generer([]);
+
+        $agendaEvents = $this->agendaManager->getAgendaEvents();
+        $vue->generer([
+            'agendaEvents' => $agendaEvents
+        ]);
     }
 
     public function panier()

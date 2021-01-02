@@ -1,14 +1,14 @@
 <?php
-var_dump ($products);
+// var_dump ($products);
 ?>
-<table data-toggle="table">
+<table data-toggle="table" data-search="true" data-show-columns="true">
     <thead>
         <tr>
             <th>Photo</th>
-            <th>Légume</th>
+            <th data-sortable="true">Légume</th>
             <th>Variété</th>
-            <th>Disponibilité</th>
-            <th>Prix</th>
+            <th data-sortable="true">Disponibilité</th>
+            <th data-sortable="true">Prix</th>
             <th>Combien</th>
             <th>Ajouter au Panier</th>
         </tr>

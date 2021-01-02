@@ -4,3 +4,5 @@ class Recette extends Modele
 {
 
 }
+
+// last inserted ==> getLastId(modele)

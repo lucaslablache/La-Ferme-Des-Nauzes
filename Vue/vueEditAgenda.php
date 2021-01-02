@@ -81,7 +81,7 @@ $aujourdhui = (new DateTime("now"))->format('Y-m-d');
             <td><?= $pastAgendaEvent['heure_debut'] ?></td>
             <td><?= $pastAgendaEvent['heure_fin'] ?></td>
             <td><?= $pastAgendaEvent['adresse'] ?></td>
-            <td><?= $futureAgendaEvent['information'] ?></td>
+            <td><?= $pastAgendaEvent['information'] ?></td>
             <td><button class="btn btn-warning">Modifier</button></td>
             <td><button class="btn btn-danger" onclick="return(confirm('Etes-vous sûr de vouloir supprimer cette entrée?'));">Supprimer</button></td>
         </tr>

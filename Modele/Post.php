@@ -10,7 +10,19 @@ class Post extends Modele
         return $posts;
 	}
 
-	//Renvoie les infos sur un post spécifique
+    //Renvoie les infos sur un post spécifique
+    //types
+    //0 = informations
+    //1 = collaborateurs
+    //2 = histoire
+	public function getPostsType($typePost) 
+	{
+        $sql = 'select POST_ID as id, POST_TITRE as titre, POST_TEXTE as texte, POST_TYPE as type, POST_AUTEUR as auteur, POST_DATE as date, POST_PHOTO as photo from post where POST_TYPE=?';
+        $posts = $this->executerRequete($sql, array($typePost));
+        return $posts;
+    }
+
+    //Renvoie les infos sur un post spécifique
 	public function getPost($idPost) 
 	{
         $sql = 'select POST_ID as id, POST_TITRE as titre, POST_TEXTE as texte, POST_TYPE as type, POST_AUTEUR as auteur, POST_DATE as date from post where BIL_ID=?';
