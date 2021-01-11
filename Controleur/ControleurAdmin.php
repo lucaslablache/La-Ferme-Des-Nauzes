@@ -55,7 +55,7 @@ class ControleurAdmin
                 $_SESSION['logged'] = true;
                 //$_SESSION['timeout'] = time(300);
                 $_SESSION['username'] = $username;
-                $loginMsg = 'You have entered valid use name and password';
+                $loginMsg = 'You have entered valid user name and password';
                 $this->admin($loginMsg);
             }
             else 

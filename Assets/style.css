@@ -57,3 +57,22 @@ https://www.design-seeds.com/seasons/summer/fresh-hues-23/
 {
   list-style-type: none;
 }
+
+
+/*
+style tui calendar
+*/
+.tui-full-calendar-weekday-schedule-bullet
+{
+  display: none;
+}
+.tui-full-calendar-weekday-schedule-title
+{
+  background-color: #84AC67;
+  color: #ffffff !important;
+  border-radius: 5%;
+}
+.tui-full-calendar-weekday-schedules
+{
+  font-size: 16px !important;
+}
