@@ -73,9 +73,33 @@
                           <a class="dropdown-item" href="/info/histoire">Histoire de la ferme</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class=" nav-link" href="/admin">Administration</a>
-                    </li>
+                    <?php 
+                    if(isset($_SESSION['logged']) && $_SESSION['logged']) 
+                    {
+                        ?>
+                        <li class="nav-item dropdown">
+                          <a class=" nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Administration
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/admin/agenda">Agenda</a>
+                            <a class="dropdown-item" href="/admin/panier">Panier</a>
+                            <a class="dropdown-item" href="/admin/recettes">Recettes</a>
+                            <a class="dropdown-item" href="/admin/informations">Informations</a>
+                            <a class="dropdown-item" href="/admin/reservations">Reservations</a>
+                          </div>
+                        </li>
+                    <?php
+                    }
+                    else
+                    {
+                      ?>
+                      <li class="nav-item">
+                          <a class=" nav-link" href="/admin">Administration</a>
+                      </li>
+                      <?php
+                    }
+                    ?>
                     
                     <?php 
                     if(isset($_SESSION['logged']) && $_SESSION['logged']) 

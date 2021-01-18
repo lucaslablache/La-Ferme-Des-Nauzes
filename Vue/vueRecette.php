@@ -17,10 +17,11 @@ Saison: <?= $saison ?>
         $color = 'green';
     }
 ?>
-<div style="background-color: <?= $color ?>;height: 400px">
+<div  style="background-color: <?= $color ?>;height: 400px"> <!-- class="<?= $saison ?>-bc" -->
 
 </div>
 <section>
+    
     <?php foreach ($recettes as $recette):?>
         <div>
             <h2> <?= $recette['titre'] ?> </h2>
