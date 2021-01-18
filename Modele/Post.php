@@ -5,7 +5,7 @@ class Post extends Modele
     //Renvoie la liste des posts du site
 	public function getPosts()
 	{
-		$sql = 'select POST_ID as id, POST_TITRE as titre, POST_TEXTE as texte, POST_TYPE as type, POST_AUTEUR as auteur, POST_DATE as date from post order by ID desc';
+		$sql = 'SELECT POST_ID as id, POST_TITRE as titre, POST_TEXTE as texte, POST_TYPE as type, POST_AUTEUR as auteur, POST_DATE as date from post order by ID desc';
 		$posts = $this->executerRequete($sql);
         return $posts;
 	}
@@ -17,7 +17,7 @@ class Post extends Modele
     //2 = histoire
 	public function getPostsType($typePost) 
 	{
-        $sql = 'select POST_ID as id, POST_TITRE as titre, POST_TEXTE as texte, POST_TYPE as type, POST_AUTEUR as auteur, POST_DATE as date, POST_PHOTO as photo from post where POST_TYPE=?';
+        $sql = 'SELECT POST_ID as id, POST_TITRE as titre, POST_TEXTE as texte, POST_TYPE as type, POST_AUTEUR as auteur, POST_DATE as date, POST_PHOTO as photo from post where POST_TYPE=?';
         $posts = $this->executerRequete($sql, array($typePost));
         return $posts;
     }
@@ -25,7 +25,7 @@ class Post extends Modele
     //Renvoie les infos sur un post spécifique
 	public function getPost($idPost) 
 	{
-        $sql = 'select POST_ID as id, POST_TITRE as titre, POST_TEXTE as texte, POST_TYPE as type, POST_AUTEUR as auteur, POST_DATE as date from post where BIL_ID=?';
+        $sql = 'SELECT POST_ID as id, POST_TITRE as titre, POST_TEXTE as texte, POST_TYPE as type, POST_AUTEUR as auteur, POST_DATE as date from post where BIL_ID=?';
         $post = $this->executerRequete($sql, array($idpost));
         if ($post->rowCount() > 0)
         {
@@ -41,7 +41,7 @@ class Post extends Modele
 
     public function insertNewPost($titre, $texte, $photo, $type)
     {
-        $sql = 'insert into post'
+        $sql = 'INSERT into post'
                 .'(POST_TITRE, POST_TEXTE, POST_TYPE, POST_AUTEUR, POST_DATE, POST_PHOTO)'
                 .' values (?,?,?,0,?,?)';
         $date = date("Y-m-d H:i:s");

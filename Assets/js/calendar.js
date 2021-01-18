@@ -21,16 +21,14 @@ $(document).ready(() => {
             return 'User : ' + (schedule.attendees || []).join(', ');
         },
         popupDetailDate: function(isAllDay, start, end) {
-            console.log(moment(start.toUTCString()).format('DD/MM/YYYY hh:mm a'));
-            console.log(moment(end));
             var isSameDate = moment(start).format('DD/MM/YYYY') == moment(end).format('DD/MM/YYYY');
-            var endFormat = (isSameDate ? '' : 'DD/MM/YYYY ') + 'hh:mm a';
+            var endFormat = (isSameDate ? '' : 'DD/MM/YYYY ') + 'HH:mm';
     
             if (isAllDay) {
-                return moment(start.toUTCString()).format('DD/MM/YYYY hh:mm a') + (isSameDate ? '' : ' - ' + moment(end.toUTCString()).format('DD/MM/YYYY hh:mm a'));
+                return moment(start.toUTCString()).format('DD/MM/YYYY HH:mm') + (isSameDate ? '' : ' - ' + moment(end.toUTCString()).format('DD/MM/YYYY HH:mm'));
             }
     
-            return (moment(start.toUTCString()).format('DD/MM/YYYY hh:mm a') + ' - ' + moment(end.toUTCString()).format(endFormat));
+            return (moment(start.toUTCString()).format('DD/MM/YYYY HH:mm') + ' - ' + moment(end.toUTCString()).format(endFormat));
         },
         popupDetailLocation: function(schedule) {
             return 'Adresse : ' + schedule.location;
@@ -52,10 +50,7 @@ $(document).ready(() => {
     calendarEvents = $("#calendar-data").children();
     calendarArray = [];
     
-    console.log(moment(Date.now()).format('DD-MM-YYYY hh:mm'));
     for (let i = 0; i < calendarEvents.length ; i++) {
-
-        console.log($(calendarEvents[i]).attr('date')+' '+$(calendarEvents[i]).attr('hStart'));
         calendarArray.push(
             {
                 id: i.toString(),

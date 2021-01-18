@@ -19,7 +19,7 @@ abstract class Modele
 
     protected function getLastId()
     {
-        return $this->getBdd()->lastIsertId();
+        return $this->getBdd()->lastInsertId();
     }
 
     private function getBdd()

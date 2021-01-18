@@ -1,5 +1,3 @@
-Recette
-
 Saison: <?= $saison ?>
 <?php
     if ($saison === 'hiver')
@@ -22,3 +20,26 @@ Saison: <?= $saison ?>
 <div style="background-color: <?= $color ?>;height: 400px">
 
 </div>
+<section>
+    <?php foreach ($recettes as $recette):?>
+        <div>
+            <h2> <?= $recette['titre'] ?> </h2>
+            <p> <?= $recette['description'] ?></p>
+            <img><?= $recette['photo'] ?></img>
+            <?php
+                $ingredients = explode('§', $recette['ingredient']);
+                $instructions = explode('§', $recette['instruction']);
+            ?>
+            <ul>
+                <?php foreach ($ingredients as $ingredient):?>
+                <li><?= $ingredient ?></li>
+                <?php endforeach;?>
+            </ul>
+            <ul>
+                <?php foreach ($instructions as $instruction):?>
+                <li><?= $instruction ?></li>
+                <?php endforeach;?>
+            </ul>
+        </div>
+    <?php endforeach; ?>
+</section>

@@ -152,21 +152,19 @@ class ControleurAdmin
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST')
         {
-            var_dump($_POST);
-
-            $ingredients = [];
-            for($i = 0; isset($_POST['ingredient_'.$i]); $i++)
-                $ingredients[] = Modele::clear_string($_POST['ingredient_'.$i]);
+            $ingredientChaine = implode("§", $_POST['ingredient']);
+            $instructionChaine = implode("§", $_POST['instruction']);
             
             $titre = Modele::clear_string($_POST['titre']);
             $description = Modele::clear_string($_POST['description']);
             $photo = Modele::clear_string($_POST['photo']);
             $saison = Modele::clear_string($_POST['saison']);
-
-            var_dump($ingredients);
+            $ingredients = Modele::clear_string($ingredientChaine);
+            $instructions = Modele::clear_string($instructionChaine);
             
+
             $recette = new Recette();
-            $recette->insertNewRecette($titre, $description, $photo, $saison);
+            $recette->insertNewRecette($titre, $description, $photo, $saison, $ingredients, $instructions);
         }
 
         $vue = new Vue("EditRecettes");

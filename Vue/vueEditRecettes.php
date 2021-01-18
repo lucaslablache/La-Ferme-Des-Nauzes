@@ -22,7 +22,7 @@ edit recettes
                 <select name="saison">
                     <option value="">--choisissez la saison--</option>
                     <option value="0">Hiver</option>
-                    <option value="1">Primtemps</option>
+                    <option value="1">Printemps</option>
                     <option value="2">Ete</option>
                     <option value="3">Automne</option>
                 </select>
@@ -32,12 +32,12 @@ edit recettes
             <ul class="col-6 dotless-ul" id="ul-ingredient" prototype="<?= htmlspecialchars('
             <li class="">
                 <label class="col-12 text-center">Ingrédient</label>
-                <input class="col-12" type="text" name="ingredient___index__" required>
+                <input class="col-12" type="text" name="ingredient[]" required>
             </li>
             ')?>">
                 <li class="">
                     <label class="col-12 text-center">Ingrédient</label>
-                    <input class="col-12" type="text" name="ingredient_0" required>
+                    <input class="col-12" type="text" name="ingredient[]" required>
                 </li>
                 <li class="last-li">
                     <button type="button" class="btn btn-success" id="add-ingredient">+</button>
@@ -46,12 +46,12 @@ edit recettes
             <ul class="col-6 dotless-ul" id="ul-instruction" prototype="<?= htmlspecialchars('
             <li class="">
                 <label class="col-12 text-center">Instruction</label>
-                <textarea class="col-12 instruction_recette" type="text" name="instruction___index__" required></textarea>
+                <textarea class="col-12 instruction_recette" type="text" name="instruction[]" required></textarea>
             </li>
             ')?>">
                 <li class="">
                     <label class="col-12 text-center">Instruction</label>
-                    <textarea class="col-12 instruction_recette" type="text" name="instruction_0" required></textarea>
+                    <textarea class="col-12 instruction_recette" type="text" name="instruction[]" required></textarea>
                 </li>
                 <li class="last-li">
                     <button type="button" class="btn btn-success" id="add-instruction">+</button>

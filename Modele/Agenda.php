@@ -4,7 +4,7 @@ class Agenda extends Modele
 {
     public function insertNewAgendaEvent($date, $h_debut, $h_fin, $adresse, $information)
     {
-        $sql = 'insert into market'
+        $sql = 'INSERT into market'
                 .'(date, heure_debut, heure_fin, adresse, information)'
                 .' values (?,?,?,?,?)';
         $this->executerRequete($sql, array($date, $h_debut, $h_fin, $adresse, $information));
