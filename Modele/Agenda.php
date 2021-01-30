@@ -16,4 +16,16 @@ class Agenda extends Modele
         $agendaEvent = $this->executerRequete($sql);
         return $agendaEvent->fetchAll();
     }
+
+    public function updateAgendaEvent($id, $date, $heureD, $heureF, $adresse, $info)
+    {
+        $sql = 'UPDATE market SET date = ?, heure_debut = ?, heure_fin = ?, adresse = ?, information = ? WHERE ID = ?';
+        $this->executerRequete($sql, array($date, $heureD, $heureF, $adresse, $info, $id));
+    }
+
+    public function deleteAgendaEvent($id)
+    {
+        $sql = 'DELETE FROM market WHERE ID = ?';
+        $this->executerRequete($sql, array($id));
+    }
 }

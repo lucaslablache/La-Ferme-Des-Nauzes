@@ -17,4 +17,16 @@ class Produit extends Modele
                 .' values (?,?,?,?,?,0)';
         $this->executerRequete($sql, array($nom, $variete, $photo, $prix, $mod_prix));
     }
+
+    public function updateProduct($id, $nom, $variete, $photo, $prix, $mod_prix, $quantite)
+    {
+        $sql = 'UPDATE produit SET nom = ?, variete = ?, photo = ?, prix = ?, mod_prix = ?, quantite = ? WHERE ID = ?';
+        $this->executerRequete($sql, array($nom, $variete, $photo, $prix, $mod_prix, $quantite, $id));
+    }
+
+    public function deleteProduit($id)
+    {
+        $sql = 'DELETE FROM produit WHERE ID = ?';
+        $this->executerRequete($sql, array($id));
+    }
 }

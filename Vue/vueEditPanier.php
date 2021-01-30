@@ -1,4 +1,5 @@
 edit panier
+<script src="/Assets/js/produit-editor.js"></script>
 <section>
     <table data-toggle="table" data-search="true" data-show-columns="true">
         <thead>
@@ -35,7 +36,16 @@ edit panier
                 }
                 ?></td>
                 <td></td>
-                <td><button class="btn btn-warning">modifier</button></td>
+                <td><button class="btn btn-warning" data-toggle="modal" data-target="#produitModal"
+                    data-id='<?= $product['id'] ?>'
+                    data-photo='<?= $product['photo'] ?>'
+                    data-nom='<?= $product['nom'] ?>'
+                    data-variete='<?= $product['variete'] ?>'
+                    data-quantite='<?= $product['quantite'] ?>'
+                    data-prix='<?= $product['prix'] ?>'
+                    data-mod-prix='<?= $product['mod_prix'] ?>'
+                    >Modifier</button>
+                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
@@ -73,4 +83,54 @@ edit panier
         <button type="subbmit" class="btn btn-success">Subbmit</button>
     </form>
     
+
+    <div class="modal fade" id="produitModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ModalLabel">Modification du Produit</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form method="post">
+            <div class="modal-body">
+              
+              <input type="hidden" id="id-modif" name="id" value="">
+              <div class="form-group">
+                <label for="nom-modif" class="col-form-label">Nom :</label>
+                <input class="col-12" type="text" id="nom-modif" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="variete-modif" class="col-form-label">Variete :</label>
+                <input class="col-12" type="text" id="variete-modif" name="variety">
+              </div>
+              <div class="form-group">
+                <label for="prix-modif" class="col-form-label col-12">Prix :</label>
+                <input class="col-6" type="text" id="prix-modif" name="price">
+                <select class="col-5" name="mod_price" id="mod_prix-modif">
+                    <option value="">--choisissez le type de prix--</option>
+                    <option value="0">€/kg</option>
+                    <option value="1">€/unité</option>
+                    <option value="2">€/douzaine</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="quantite-modif" class="col-form-label">Quantite :</label>
+                <input class="col-12" type="text" id="quantite-modif" name="quantite">
+              </div>
+              <div class="form-group">
+                <label for="photo-modif" class="col-form-label">Photo :</label>
+                <input class="col-12" type="text" id="photo-modif" name="picture" required>
+              </div>
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="subbmit" class="btn btn-primary">Modifier</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 </section>

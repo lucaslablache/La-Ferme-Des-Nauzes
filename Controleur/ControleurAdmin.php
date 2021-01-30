@@ -91,7 +91,15 @@ class ControleurAdmin
             $location = Modele::clear_string($_POST['location']);
             $information = Modele::clear_string($_POST['info']);
             $agenda = new Agenda();
-            $agenda->insertNewAgendaEvent($date, $time_start, $time_end, $location, $information);
+            if (isset($_POST['id']))
+            {
+                $id = Modele::clear_string($_POST['id']);
+                $agenda->updateAgendaEvent($id, $date, $time_start, $time_end, $location, $information);
+            }
+            else 
+            {
+                $agenda->insertNewAgendaEvent($date, $time_start, $time_end, $location, $information);
+            }
         }
 
         $vue = new Vue("EditAgenda");
@@ -135,7 +143,16 @@ class ControleurAdmin
             $prix = Modele::clear_string($_POST['price']);
             $mod_prix = Modele::clear_string($_POST['mod_price']);
             $product = new Produit();
-            $product->insertNewProduct($nom, $variete, $photo, $prix, $mod_prix);
+            if (isset($_POST['id']))
+            {
+                $id = Modele::clear_string($_POST['id']);
+                $quantite = Modele::clear_string($_POST['quantite']);
+                $product->updateProduct($id, $nom, $variete, $photo, $prix, $mod_prix, $quantite);
+            }
+            else 
+            {
+                $product->insertNewProduct($nom, $variete, $photo, $prix, $mod_prix);
+            }
         }
 
         $vue = new Vue("EditPanier");
