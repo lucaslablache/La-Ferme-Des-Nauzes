@@ -29,4 +29,11 @@ class Produit extends Modele
         $sql = 'DELETE FROM produit WHERE ID = ?';
         $this->executerRequete($sql, array($id));
     }
+
+    public function getShippableProduct($id)
+    {
+        $sql = 'SELECT ID as id, nom as nom, variete as variete, photo as photo, prix as prix, mod_prix as mod_prix, quantite as quantite, saison as saison FROM produit WHERE ID = ?';
+        $shippableProduct = $this->executerRequete($sql,array($id));
+        return $shippableProduct->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

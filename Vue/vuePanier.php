@@ -78,17 +78,16 @@
                     <div class="row">
                         <div class="col-4" id="panier-photo"></div>
                         <div class="col-8">
-                            <p class="row" id="panier-nom">bla bla</p>
-                            <p class="row" id="panier-prix">ble ble</p>
-                            <p class="row" id="panier-disponibilite">ble ble</p>
+                            <p class="row" id="panier-nom"></p>
+                            <p class="row" id="panier-prix"></p>
+                            <p class="row" id="panier-disponibilite"></p>
                         </div>
                     </div>
                 </div>
-                <input type="hidden" id="panier-id" name="id" value="">
                 <hr>
                 <form method="post">
                     <div class="modal-body">
-                        <input type="hidden" id="id-modif" name="id" value="">
+                        <input type="hidden" id="panier-id-form" name="id" value="">
                         <div class="form-group">
                             <label for="nom-modif" class="col-form-label">Combien voulez vous en commander ? </label>
                             <input class="col-12" type="number" id="quantite-commande" name="quantite" required>

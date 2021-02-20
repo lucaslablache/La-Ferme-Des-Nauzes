@@ -1,12 +1,16 @@
 var addProductButton;
 function cleanField() 
 {
-    console.log('coujcsxpoih');
     let sourceFieldValue = $('#quantite-commande').val();
     if (sourceFieldValue > addProductButton.data('quantite'))
     {
         $('#quantite-commande').val(addProductButton.data('quantite'));
         window.alert("Il n'y a pas assez de stocks pour une si grosse commande");
+    }
+    if (sourceFieldValue == 0)
+    {
+        $('#quantite-commande').val(addProductButton.data('quantite'));
+        window.alert("Vous ne pouvez pas commander un quantité nulle");
     }
 }
 $(document).ready(()=>{
@@ -43,6 +47,6 @@ $(document).ready(()=>{
         modal.find('#panier-photo').text(photo);
         modal.find('#panier-prix').text(prix + modPrixString);
         modal.find('#panier-disponibilite').text('il y a ' + quantite + ' ' + nom + ' disponible(s)');
-        modal.find('#panier-id').val(id);
+        modal.find('#panier-id-form').val(id);
     });
 });
