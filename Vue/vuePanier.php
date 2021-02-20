@@ -1,6 +1,7 @@
 <?php
 // var_dump ($products);
 ?>
+<script src="/Assets/js/panier-modal.js"></script>
 <table data-toggle="table" data-search="true" data-show-columns="true">
     <thead>
         <tr>
@@ -9,7 +10,7 @@
             <th>Variété</th>
             <th data-sortable="true">Disponibilité</th>
             <th data-sortable="true">Prix</th>
-            <th>Combien</th>
+            <th>Saison</th>
             <th>Ajouter au Panier</th>
         </tr>
     </thead>
@@ -35,9 +36,71 @@
                 echo ('€/douzaines');
             }
             ?></td>
-            <td></td>
-            <td><button class="btn btn-success">Ajouter au panier</button></td>
+            <td>
+            <?php
+            if ($product['saison'] == 0) 
+            {
+                echo ('Non attribué');
+            }
+            if ($product['saison'] == 1) 
+            {
+                echo ('De saison');
+            }
+            if ($product['saison'] == 2) 
+            {
+                echo ('Hors saison');
+            }
+            ?></td>
+            <td><button class="btn btn-success" data-toggle="modal" data-target="#produitModal"
+                data-id='<?= $product['id'] ?>'
+                data-photo='<?= $product['photo'] ?>'
+                data-nom='<?= $product['nom'] ?>'
+                data-variete='<?= $product['variete'] ?>'
+                data-quantite='<?= $product['quantite'] ?>'
+                data-prix='<?= $product['prix'] ?>'
+                data-mod-prix='<?= $product['mod_prix'] ?>'
+                data-saison='<?= $product['saison'] ?>'
+                >Ajouter au panier</button>
+            </td>
         </tr>
         <?php endforeach; ?>
+
+        <div class="modal fade" id="produitModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">Ajouter au panier</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-4" id="panier-photo"></div>
+                        <div class="col-8">
+                            <p class="row" id="panier-nom">bla bla</p>
+                            <p class="row" id="panier-prix">ble ble</p>
+                            <p class="row" id="panier-disponibilite">ble ble</p>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" id="panier-id" name="id" value="">
+                <hr>
+                <form method="post">
+                    <div class="modal-body">
+                        <input type="hidden" id="id-modif" name="id" value="">
+                        <div class="form-group">
+                            <label for="nom-modif" class="col-form-label">Combien voulez vous en commander ? </label>
+                            <input class="col-12" type="number" id="quantite-commande" name="quantite" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="subbmit" class="btn btn-success">Commander</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
     </tbody>
 </table>

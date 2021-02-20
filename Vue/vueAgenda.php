@@ -18,6 +18,7 @@ Agenda
         <button type="button" id="move-next" class="btn btn-default btn-sm move-day" data-action="move-next">
           <i class="calendar-icon fas fa-chevron-right" data-action="move-next"></i>
         </button>
+        <span id="renderRange" class="render-range"></span>
     </span>
 </div>
 

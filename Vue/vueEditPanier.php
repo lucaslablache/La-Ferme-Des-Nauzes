@@ -9,7 +9,7 @@ edit panier
                 <th>Variété</th>
                 <th data-sortable="true">Disponibilité</th>
                 <th data-sortable="true">Prix</th>
-                <th>Récolte</th>
+                <th>Saison</th>
                 <th>Modifier le produit</th>
             </tr>
         </thead>
@@ -35,7 +35,20 @@ edit panier
                     echo ('€/douzaine');
                 }
                 ?></td>
-                <td></td>
+                <td><?php
+                if ($product['saison'] == 0) 
+                {
+                    echo ('Non attribué');
+                }
+                if ($product['saison'] == 1) 
+                {
+                    echo ('De saison');
+                }
+                if ($product['saison'] == 2) 
+                {
+                    echo ('Hors saison');
+                }
+                ?></td>
                 <td><button class="btn btn-warning" data-toggle="modal" data-target="#produitModal"
                     data-id='<?= $product['id'] ?>'
                     data-photo='<?= $product['photo'] ?>'
@@ -44,6 +57,7 @@ edit panier
                     data-quantite='<?= $product['quantite'] ?>'
                     data-prix='<?= $product['prix'] ?>'
                     data-mod-prix='<?= $product['mod_prix'] ?>'
+                    data-saison='<?= $product['saison'] ?>'
                     >Modifier</button>
                 </td>
             </tr>
@@ -58,26 +72,26 @@ edit panier
     
     <form class="row justify-content-around" method="post">
         <div class="col-2 px-0">
-            <label class="col-12 text-center">Nom</label>
-            <input class="col-12" type="text" name="name" required>
+          <label class="col-12 text-center">Nom</label>
+          <input class="col-12" type="text" name="name" required>
         </div>
         <div class="col-2 px-0">
-            <label class="col-12 text-center">Variété</label>
-            <input class="col-12" type="text" name="variety">
+          <label class="col-12 text-center">Variété</label>
+          <input class="col-12" type="text" name="variety">
         </div>
         <div class="col-2 px-0">
-            <label class="col-12 text-center">Photo</label>
-            <input class="col-12" type="text" name="picture" required>
+          <label class="col-12 text-center">Photo</label>
+          <input class="col-12" type="text" name="picture" required>
         </div>
         <div class="col-2 px-0">
-            <label class="col-12 text-center">Prix</label>
-            <input class="col-12" type="text" name="price">
-            <select name="mod_price">
-                <option value="">--choisissez le type de prix--</option>
-                <option value="0">€/kg</option>
-                <option value="1">€/unité</option>
-                <option value="2">€/douzaine</option>
-            </select>
+          <label class="col-12 text-center">Prix</label>
+          <input class="col-12" type="text" name="price">
+          <select name="mod_price">
+              <option value="">--choisissez le type de prix--</option>
+              <option value="0">€/kg</option>
+              <option value="1">€/unité</option>
+              <option value="2">€/douzaine</option>
+          </select>
         </div>
         
         <button type="subbmit" class="btn btn-success">Subbmit</button>
@@ -120,10 +134,18 @@ edit panier
                 <input class="col-12" type="text" id="quantite-modif" name="quantite">
               </div>
               <div class="form-group">
+                <label class="col-12 text-center">saison</label>
+                <select class="col-12" id="saison" name="saison">
+                    <option value="">--choisissez--</option>
+                    <option value="0">Non attribué</option>
+                    <option value="1">De saison</option>
+                    <option value="2">Hors saison</option>
+                </select>
+              </div>
+              <div class="form-group">
                 <label for="photo-modif" class="col-form-label">Photo :</label>
                 <input class="col-12" type="text" id="photo-modif" name="picture" required>
               </div>
-              
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

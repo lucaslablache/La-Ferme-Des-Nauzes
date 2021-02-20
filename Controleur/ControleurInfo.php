@@ -4,6 +4,7 @@ require_once 'Vue/vue.php';
 
 class ControleurInfo
 {
+    private $postManager;
 
     public function __construct($_url)
     {
@@ -16,6 +17,10 @@ class ControleurInfo
         {
             $this->histoire();
         }
+        elseif($_url[1] === 'informations')
+        {
+            $this->info();
+        }
         else
         {
             throw new Exception('Page not found');
@@ -24,17 +29,42 @@ class ControleurInfo
 
     public function partenaire()
     {
-        $vue = new Vue("Partenaire");
-        $vue->generer([//les post
+        $this->postManager = new Post();
+        $typePost = 1;
 
+        $vue = new Vue("Partenaire");
+
+        $posts = $this ->postManager->getPostsType($typePost);
+
+        $vue->generer([
+            'posts' => $posts
         ]);
     }
 
     public function histoire()
     {
-        $vue = new Vue("Histoire");
-        $vue->generer([
+        $this->postManager = new Post();
+        $typePost = 2;
 
+        $vue = new Vue("Histoire");
+
+        $posts = $this->postManager->getPostsType($typePost);
+
+        $vue->generer([
+            'posts' => $posts
+        ]);
+    }
+    public function info()
+    {
+        $this->postManager = new Post();
+        $typePost = 0;
+
+        $vue = new Vue("Informations");
+
+        $posts = $this->postManager->getPostsType($typePost);
+        
+        $vue->generer([
+            'posts' => $posts
         ]);
     }
 }

@@ -142,12 +142,14 @@ class ControleurAdmin
             $photo = Modele::clear_string($_POST['picture']);
             $prix = Modele::clear_string($_POST['price']);
             $mod_prix = Modele::clear_string($_POST['mod_price']);
+            
             $product = new Produit();
             if (isset($_POST['id']))
             {
                 $id = Modele::clear_string($_POST['id']);
                 $quantite = Modele::clear_string($_POST['quantite']);
-                $product->updateProduct($id, $nom, $variete, $photo, $prix, $mod_prix, $quantite);
+                $saison = Modele::clear_string($_POST['saison']);
+                $product->updateProduct($id, $nom, $variete, $photo, $prix, $mod_prix, $quantite,$saison);
             }
             else 
             {

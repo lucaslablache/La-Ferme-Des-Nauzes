@@ -68,6 +68,8 @@
                           Informations
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="/info/informations">Informations</a>
+                          <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="/info/partenaire">Collaborateurs</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="/info/histoire">Histoire de la ferme</a>

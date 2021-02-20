@@ -36,7 +36,7 @@ $(document).ready(() => {
     };
     
     cal = new tui.Calendar('#calendar', {
-        defaultView: 'month', // monthly view option
+        defaultView: 'month',
         month: {
             daynames: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Vend', 'Sam'],
             startDayOfWeek: 1

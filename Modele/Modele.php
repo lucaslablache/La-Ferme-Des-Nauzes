@@ -43,6 +43,9 @@ abstract class Modele
         $data = htmlspecialchars($data);
         return $data;
     }
+
+    //reverse 
+    // use htmlspecialchars_decode($data)
     static public function clear_sql_string($data)
     {
         $data = trim($data);

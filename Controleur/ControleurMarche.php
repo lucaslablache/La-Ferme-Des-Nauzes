@@ -9,7 +9,6 @@ class ControleurMarche
 
     public function __construct($_url)
     {
-        echo 'marche';
         //todo: manage url length
         if($_url[1] === 'agenda')
         {
