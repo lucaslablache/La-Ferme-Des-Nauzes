@@ -1,5 +1,12 @@
 var cal;
 var calendarEvents;
+
+function updateMonthHeader() 
+{
+    let months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+    $('#renderRange').text(months[cal._renderDate.getMonth()] + ' ' + cal._renderDate.getFullYear());
+}
+
 $(document).ready(() => {
     var templates = {
         titlePlaceholder: function() {
@@ -66,6 +73,11 @@ $(document).ready(() => {
             }
         )
     }
+    updateMonthHeader();
+
+    
+    //$('#renderRange')
+    console.log(cal._renderDate);
 
     cal.createSchedules(calendarArray);
 
@@ -74,14 +86,18 @@ $(document).ready(() => {
 
     $("#move-today").click( () => {
         cal.today();
+        updateMonthHeader();
+        console.log(cal._renderDate.getFullYear());
       });
 
     $("#move-prev").click( () => {
       cal.prev();
+      updateMonthHeader();
     });
 
     $("#move-next").click( () => {
         cal.next();
+        updateMonthHeader();
       });
     
     
