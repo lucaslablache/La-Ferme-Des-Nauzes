@@ -90,7 +90,7 @@
                         <input type="hidden" id="panier-id-form" name="id" value="">
                         <div class="form-group">
                             <label for="nom-modif" class="col-form-label">Combien voulez vous en commander ? </label>
-                            <input class="col-12" type="number" id="quantite-commande" name="quantite" required>
+                            <input class="col-12" type="number" id="quantite-commande" min="0" name="quantite" required>
                         </div>
                     </div>
                     <div class="modal-footer">

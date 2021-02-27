@@ -87,7 +87,6 @@ $(document).ready(() => {
     $("#move-today").click( () => {
         cal.today();
         updateMonthHeader();
-        console.log(cal._renderDate.getFullYear());
       });
 
     $("#move-prev").click( () => {

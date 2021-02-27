@@ -1,23 +1,5 @@
 var addProductButton;
-function cleanField() 
-{
-    let sourceFieldValue = $('#quantite-commande').val();
-    if (sourceFieldValue > addProductButton.data('quantite'))
-    {
-        $('#quantite-commande').val(addProductButton.data('quantite'));
-        window.alert("Il n'y a pas assez de stocks pour une si grosse commande");
-    }
-    if (sourceFieldValue == 0)
-    {
-        $('#quantite-commande').val(addProductButton.data('quantite'));
-        window.alert("Vous ne pouvez pas commander un quantité nulle");
-    }
-}
 $(document).ready(()=>{
-    $('#quantite-commande').on("change", ()=>
-    {
-        cleanField();
-    });
     $('#produitModal').on('show.bs.modal', function (event) {
         addProductButton = $(event.relatedTarget) // Button that triggered the modal
         var photo = addProductButton.data('photo');
@@ -28,20 +10,23 @@ $(document).ready(()=>{
         var id = addProductButton.data('id');
         var modPrixString = '';
         var modprix = addProductButton.data('mod-prix');
+        var modal = $(this)
         if (modprix === 0) 
         {
             modPrixString = '€/kg';
+            modal.find('#quantite-commande').attr('step', 0.1);
         }
         if (modprix === 1) 
         {
             modPrixString = '€/unites';
+            modal.find('#quantite-commande').attr('step', 1);
         }
         if (modprix === 2) 
         {
             modPrixString = '€/douzaines';
+            modal.find('#quantite-commande').attr('step', 0.5);
         }
-
-        var modal = $(this)
+        modal.find('#quantite-commande').attr('max', quantite);
         modal.find('.modal-title').text('Ajouter : ' + nom + ' ' + variete + ' au Panier')
         modal.find('#panier-nom').text(nom + ' ' + variete);
         modal.find('#panier-photo').text(photo);

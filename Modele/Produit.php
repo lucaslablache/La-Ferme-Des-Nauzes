@@ -34,6 +34,6 @@ class Produit extends Modele
     {
         $sql = 'SELECT ID as id, nom as nom, variete as variete, photo as photo, prix as prix, mod_prix as mod_prix, quantite as quantite, saison as saison FROM produit WHERE ID = ?';
         $shippableProduct = $this->executerRequete($sql,array($id));
-        return $shippableProduct->fetchAll(PDO::FETCH_ASSOC);
+        return $shippableProduct->fetchAll();
     }
 }

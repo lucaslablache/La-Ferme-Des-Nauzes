@@ -27,7 +27,7 @@ abstract class Modele
         if ($this->bdd == null) 
         {
             //dev
-            $this->bdd = new PDO('mysql:host=localhost;dbname=bdd_lfdn;charset=utf8','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+            $this->bdd = new PDO('mysql:host=localhost;dbname=bdd_lfdn;charset=utf8','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));
             
             //prod
             //$this->bdd = new PDO('mysql:host=pencilanhf456db.mysql.db;dbname=pencilanhf456db;charset=utf8','pencilanhf456db','ovh456Db',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));

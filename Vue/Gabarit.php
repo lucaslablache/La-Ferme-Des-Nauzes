@@ -97,7 +97,10 @@
                     {
                       ?>
                       <li class="nav-item">
-                          <a class=" nav-link" href="/admin">Administration</a>
+                          <a class=" nav-link" href="/admin">Connexion</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class=" nav-link" href="/inscription">Inscription</a>
                       </li>
                       <?php
                     }
