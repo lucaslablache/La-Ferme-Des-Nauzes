@@ -61,8 +61,8 @@ class ControleurMarche
                     }
 
                 }
-                if 
-                $productData['quantiteCommande'] = (float) $_POST['quantite'];
+                // if 
+                // $productData['quantiteCommande'] = (float) $_POST['quantite'];
 
                 $isAlreadyOrdered = false ;
                 $i = 0;
