@@ -11,7 +11,7 @@ class User extends Modele
 
     public function getUser($email)
 	{
-        $sql = 'SELECT ID as id, nom as nom, prenom as prenom, mot_de_passe as mot_de_passe from user where email=?';
+        $sql = 'SELECT ID as id, nom as nom, prenom as prenom, mot_de_passe as mot_de_passe, role as role from user where email=?';
         $post = $this->executerRequete($sql, array($email));
         if ($post->rowCount() > 0)
         {

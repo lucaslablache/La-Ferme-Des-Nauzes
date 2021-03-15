@@ -103,3 +103,60 @@
         </div>
     </tbody>
 </table>
+
+
+<table data-toggle="table" data-search="true" data-show-columns="true">
+    <thead>
+        <tr>
+            <th>Photo</th>
+            <th data-sortable="true">Légume</th>
+            <th>Variété</th>
+            <th data-sortable="true">Prix Unitaire</th>
+            <th data-sortable="true">Quantitée</th>
+            <th data-sortable="true">Prix Commande</th>
+            <th>Modifier</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $prixTotal = 0; ?>
+        <?php $prixProduit = 0; ?>
+        <?php foreach ($commande as $produitCommande):?>
+            <tr>
+                <td><?= $produitCommande['photo'] ?></td>
+                <td><?= $produitCommande['nom'] ?></td>
+                <td><?= $produitCommande['variete'] ?></td>
+                <td><?= $produitCommande['prix'] ?>
+                <?php
+                if ($produitCommande['mod_prix'] == 0) 
+                {
+                    echo ('€/kg');
+                }
+                if ($produitCommande['mod_prix'] == 1) 
+                {
+                    echo ('€/unités');
+                }
+                if ($produitCommande['mod_prix'] == 2) 
+                {
+                    echo ('€/douzaines');
+                }
+                ?></td>
+                <td><?= $produitCommande['quantiteCommande'] ?></td>
+                <?php $prixProduit = $produitCommande['quantiteCommande'] * $produitCommande['prix']?>
+                <td><?= $prixProduit .' €' ?></td>
+                <td><button class="btn btn-danger" data-toggle="modal" data-target="#produitModal">retirer de la commande</button>
+            </tr>
+            <?php $prixTotal += $prixProduit; ?>
+
+        <?php endforeach; ?>
+        <tr>
+            <td>Total</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><?= $prixTotal .' €'?></td>
+            <td><button class="btn btn-success" data-toggle="modal" data-target="#produitModal">Finaliser la commande</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

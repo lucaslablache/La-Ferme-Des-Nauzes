@@ -1,5 +1,5 @@
 <form class="form-signin" role="form"
-      action="/admin" method="post">
+      action="/login" method="post">
     <h4 class = "form-signin-heading"><?= $errorMsg; ?></h4>
     <input type = "text" class="form-control"
            name="username" placeholder="Adresse Mail"

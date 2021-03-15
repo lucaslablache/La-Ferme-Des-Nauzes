@@ -56,13 +56,12 @@ class ControleurMarche
                 {
                     if ( ! ($key === 'quantite')) 
                     {
-                        
                         $productData[$key] = $value;
                     }
 
                 }
                 // if 
-                // $productData['quantiteCommande'] = (float) $_POST['quantite'];
+                $productData['quantiteCommande'] = (float) $_POST['quantite'];
 
                 $isAlreadyOrdered = false ;
                 $i = 0;
@@ -80,7 +79,7 @@ class ControleurMarche
                 {
                     array_push($_SESSION['panier'], $productData);
                 }
-                var_dump($_SESSION['panier']);
+                //var_dump($_SESSION['panier']);
             }
 
         }
@@ -90,7 +89,8 @@ class ControleurMarche
         $products = $this->productManager->getProducts();
         
         $vue->generer([
-            'products' => $products
+            'products' => $products,
+            'commande' => $_SESSION['panier']
         ]);
     }
 }

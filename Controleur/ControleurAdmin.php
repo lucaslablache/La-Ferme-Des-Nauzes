@@ -11,15 +11,9 @@ class ControleurAdmin
 
     public function __construct($_url)
     {
-
-
         //todo: put that in environment.php
-//        $username = 'La ferme des Nauzes';
-//        $password = 'On te dit!';
-        $username = 'a';
-        $password = 'b';
-        //todo: manage url length
-        if (isset($_SESSION['logged']) && $_SESSION['logged'])
+
+        if (isset($_SESSION['logged']) && $_SESSION['logged'] && $_SESSION['role'] == 1)
         {
             if (count($_url) === 1) 
             {
@@ -41,34 +35,15 @@ class ControleurAdmin
             {
                 $this->editInformations();
             }
-
-        }
-        elseif (isset($_POST['login']) && !empty($_POST['username'])
-            && !empty($_POST['password']))
-        {
-
-            if ($_POST['username'] == $username &&
-                $_POST['password'] == $password) 
+            else
             {
-
-                $_SESSION['valid'] = true;
-                $_SESSION['logged'] = true;
-                //$_SESSION['timeout'] = time(300);
-                $_SESSION['username'] = $username;
-                $loginMsg = 'You have entered valid user name and password';
-                $this->admin($loginMsg);
-            }
-            else 
-            {
-                $errorMsg = 'Wrong username or password';
-                $this->login($errorMsg);
+                throw new Exception('Page not found');
             }
         }
         else 
         {
-            $this->login();
+            header ('Location: /login');
         }
-//        $this->admin();
     }
 
     public function admin(String $loginMsg = null)
@@ -210,14 +185,4 @@ class ControleurAdmin
         $vue->generer([]);
         
     }
-
-    public function login(String $errorMsg = null)
-    {
-        $vue = new Vue("Login");
-        $vue->generer([
-            'errorMsg' => $errorMsg
-        ]);
-    }
-
-
 }
