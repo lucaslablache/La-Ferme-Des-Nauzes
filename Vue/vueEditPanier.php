@@ -86,7 +86,7 @@ edit panier
         <div class="col-2 px-0">
           <label class="col-12 text-center">Prix</label>
           <input class="col-12" type="text" name="price">
-          <select name="mod_price">
+          <select name="mod_price" required>
               <option value="">--choisissez le type de prix--</option>
               <option value="0">€/kg</option>
               <option value="1">€/unité</option>
@@ -122,7 +122,7 @@ edit panier
               <div class="form-group">
                 <label for="prix-modif" class="col-form-label col-12">Prix :</label>
                 <input class="col-6" type="text" id="prix-modif" name="price">
-                <select class="col-5" name="mod_price" id="mod_prix-modif">
+                <select class="col-5" name="mod_price" id="mod_prix-modif" required>
                     <option value="">--choisissez le type de prix--</option>
                     <option value="0">€/kg</option>
                     <option value="1">€/unité</option>
@@ -135,7 +135,7 @@ edit panier
               </div>
               <div class="form-group">
                 <label class="col-12 text-center">saison</label>
-                <select class="col-12" id="saison" name="saison">
+                <select class="col-12" id="saison-modif" name="saison" required>
                     <option value="">--choisissez--</option>
                     <option value="0">Non attribué</option>
                     <option value="1">De saison</option>

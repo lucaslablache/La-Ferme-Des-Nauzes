@@ -1,7 +1,11 @@
 <?php
 // var_dump ($products);
 ?>
+<?php if (! ($error === '')) :?>
+<div><?=$error?></div>
+<?php endif; ?>
 <script src="/Assets/js/panier-modal.js"></script>
+<script src="/Assets/js/delete-modal.js"></script>
 <table data-toggle="table" data-search="true" data-show-columns="true">
     <thead>
         <tr>
@@ -104,59 +108,95 @@
     </tbody>
 </table>
 
-
-<table data-toggle="table" data-search="true" data-show-columns="true">
-    <thead>
-        <tr>
-            <th>Photo</th>
-            <th data-sortable="true">Légume</th>
-            <th>Variété</th>
-            <th data-sortable="true">Prix Unitaire</th>
-            <th data-sortable="true">Quantitée</th>
-            <th data-sortable="true">Prix Commande</th>
-            <th>Modifier</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php $prixTotal = 0; ?>
-        <?php $prixProduit = 0; ?>
-        <?php foreach ($commande as $produitCommande):?>
+<?php if ( !empty($commande)) :?>
+    <table data-toggle="table" data-search="true" data-show-columns="true">
+        <thead>
             <tr>
-                <td><?= $produitCommande['photo'] ?></td>
-                <td><?= $produitCommande['nom'] ?></td>
-                <td><?= $produitCommande['variete'] ?></td>
-                <td><?= $produitCommande['prix'] ?>
-                <?php
-                if ($produitCommande['mod_prix'] == 0) 
-                {
-                    echo ('€/kg');
-                }
-                if ($produitCommande['mod_prix'] == 1) 
-                {
-                    echo ('€/unités');
-                }
-                if ($produitCommande['mod_prix'] == 2) 
-                {
-                    echo ('€/douzaines');
-                }
-                ?></td>
-                <td><?= $produitCommande['quantiteCommande'] ?></td>
-                <?php $prixProduit = $produitCommande['quantiteCommande'] * $produitCommande['prix']?>
-                <td><?= $prixProduit .' €' ?></td>
-                <td><button class="btn btn-danger" data-toggle="modal" data-target="#produitModal">retirer de la commande</button>
+                <th>Photo</th>
+                <th>Légume</th>
+                <th>Variété</th>
+                <th>Prix Unitaire</th>
+                <th>Quantitée</th>
+                <th>Prix Commande</th>
+                <th>Modifier</th>
             </tr>
-            <?php $prixTotal += $prixProduit; ?>
+        </thead>
+        <tbody>
+            <?php $prixTotal = 0; ?>
+            <?php $prixProduit = 0; ?>
+            <?php foreach ($commande as $produitCommande):?>
+                <tr>
+                    <td><?= $produitCommande['photo'] ?></td>
+                    <td><?= $produitCommande['nom'] ?></td>
+                    <td><?= $produitCommande['variete'] ?></td>
+                    <td><?= $produitCommande['prix'] ?>
+                    <?php
+                    if ($produitCommande['mod_prix'] == 0) 
+                    {
+                        echo ('€/kg');
+                    }
+                    if ($produitCommande['mod_prix'] == 1) 
+                    {
+                        echo ('€/unités');
+                    }
+                    if ($produitCommande['mod_prix'] == 2) 
+                    {
+                        echo ('€/douzaines');
+                    }
+                    ?></td>
+                    <td><?= $produitCommande['quantiteCommande'] ?></td>
+                    <?php $prixProduit = $produitCommande['quantiteCommande'] * $produitCommande['prix']?>
+                    <td><?= $prixProduit .' €' ?></td>
+                    <td><button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"
+                    data-id='<?= $produitCommande['id'] ?>'
+                    data-photo='<?= $produitCommande['photo'] ?>'
+                    data-nom='<?= $produitCommande['nom'] ?>'
+                    data-variete='<?= $produitCommande['variete'] ?>'
+                    data-quantite='<?= $produitCommande['quantiteCommande'] ?>'
+                    data-mod-prix='<?= $produitCommande['mod_prix'] ?>'
+                    >retirer de la commande</button>
+                </tr>
+                <?php $prixTotal += $prixProduit; ?>
 
-        <?php endforeach; ?>
-        <tr>
-            <td>Total</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><?= $prixTotal .' €'?></td>
-            <td><button class="btn btn-success" data-toggle="modal" data-target="#produitModal">Finaliser la commande</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+            <?php endforeach; ?>
+            <tr>
+                <td>Total</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><?= $prixTotal .' €'?></td>
+                <td><button class="btn btn-success" data-toggle="modal" data-target="#produitModal">Finaliser la commande</button>
+                </td>
+            </tr>
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel">Retirer de la commande</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-4" id="delete-photo"></div>
+                            <div class="col-8">
+                                <p class="row" id="delete-info"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <form method="post">
+                        <input type="hidden" id="delete-id-form" name="id" value="">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                            <button type="subbmit" class="btn btn-success">Retirer</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </tbody>
+    </table>
+<?php endif; ?>

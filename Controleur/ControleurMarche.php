@@ -38,40 +38,38 @@ class ControleurMarche
 
     public function panier()
     {
+        $error_msg = "";
         $this->productManager = new Produit();
 
-        
         if ( ! isset( $_SESSION['panier']))
         {
            $_SESSION['panier'] = array();
         }
         if (isset ($_POST['id']))
         {
+            //$this->addPanier();
             $productToAdd = $this->productManager->getShippableProduct($_POST['id']);
 
             if (isset ($productToAdd[0])) 
             {
-                $productData = array();
-                foreach ($productToAdd[0] as $key => $value) 
-                {
-                    if ( ! ($key === 'quantite')) 
-                    {
-                        $productData[$key] = $value;
-                    }
-
-                }
-                // if 
+                $productData = $productToAdd[0];
                 $productData['quantiteCommande'] = (float) $_POST['quantite'];
-
-                $isAlreadyOrdered = false ;
+                $isAlreadyOrdered = false;
+                
                 $i = 0;
                 foreach ($_SESSION['panier'] as $product) 
                 {
-                    
                     if ($product['id'] == $productData['id']) 
                     {
-                        $_SESSION['panier'][$i]['quantiteCommande'] += $productData['quantiteCommande'];
-                        $isAlreadyOrdered = true ;
+                        $isAlreadyOrdered = true;
+                        if (($_SESSION['panier'][$i]['quantiteCommande'] + $productData['quantiteCommande']) > $productToAdd[0]['quantite']) 
+                        {
+                            $error_msg = "Vous avez commandé plus de produit qu'il n'y a de disponibilité";
+                        }
+                        else 
+                        {
+                            $_SESSION['panier'][$i]['quantiteCommande'] += $productData['quantiteCommande'];
+                        }
                     }
                     $i ++;
                 }
@@ -81,7 +79,6 @@ class ControleurMarche
                 }
                 //var_dump($_SESSION['panier']);
             }
-
         }
 
         $vue = new Vue("Panier");
@@ -90,7 +87,13 @@ class ControleurMarche
         
         $vue->generer([
             'products' => $products,
-            'commande' => $_SESSION['panier']
+            'commande' => $_SESSION['panier'],
+            'error' => $error_msg
         ]);
+    }
+
+    public function addPanier()
+    {
+
     }
 }

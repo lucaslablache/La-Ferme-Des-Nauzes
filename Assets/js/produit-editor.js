@@ -8,6 +8,7 @@ $(document).ready(()=>{
         var prix = button.data('prix');
         var modprix = button.data('mod-prix');
         var id = button.data('id');
+        var saison = button.data('saison');
 
         var modal = $(this)
         modal.find('.modal-title').text('Modification du Produit : ' + nom + ' ' + variete)
@@ -18,5 +19,6 @@ $(document).ready(()=>{
         modal.find('.modal-body #quantite-modif').val(quantite);
         modal.find('.modal-body #photo-modif').val(photo);
         modal.find('.modal-body #id-modif').val(id);
+        modal.find('.modal-body #saison-modif').val(saison);
       });
 });

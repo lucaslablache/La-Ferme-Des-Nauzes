@@ -1,5 +1,5 @@
 <?php 
-var_dump($posts);
+//var_dump($posts);
 ?>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
